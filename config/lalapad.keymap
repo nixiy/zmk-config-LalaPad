@@ -193,7 +193,7 @@
 
         SECONDARY_LAYER {
             display-name = "secondary_layer";
-            sensor-bindings = <&scroll_left_right>, <&scroll_left_right>;
+            sensor-bindings = <&volume_up_down>, <&scroll_left_right>;
 
             bindings = <
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6    &kp N7          &kp N8        &kp N9           &kp N0           &kp KP_NUMBER_9
@@ -231,11 +231,11 @@
         MOUSE_R_LAYER {
             display-name = "mouse_r_layer";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &mkp MCLK  &mo 5   &mo SCROLL_R_LAYER
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB4   &mkp MB5   &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans
+&trans  &trans  &trans     &trans     &trans     &trans    &trans    &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &mkp MCLK  &mkp RCLK  &mkp LCLK  &mkp MB5  &mkp MB5  &mkp LCLK  &mkp RCLK  &mkp MCLK  &mo 5   &mo SCROLL_R_LAYER
+&trans  &trans  &trans     &mkp MB5   &mkp MB4   &mkp MB4  &mkp MB4  &mkp MB4   &mkp MB5   &trans     &trans  &trans
+&trans  &trans  &trans     &trans     &mo 5      &trans    &trans    &trans     &trans     &trans     &trans  &trans
+                &trans     &trans     &trans     &trans    &trans    &trans     &trans     &trans
             >;
         };
 
