@@ -175,19 +175,41 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        JK_ctrl {
+            bindings = <&kp LEFT_CONTROL>;
+            key-positions = <19 20>;
+            layers = <0>;
+        };
+
+        m,_alt {
+            bindings = <&none>;
+            key-positions = <31 32>;
+            layers = <0>;
+        };
+
+        NM_shift {
+            bindings = <&none>;
+            key-positions = <30 31>;
+            layers = <0>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         DEFAULT_LAYER {
             display-name = "Default";
-            sensor-bindings = <&scroll_down_up>, <&scroll_up_down>;
+            sensor-bindings = <&volume_up_down>, <&scroll_left_right>;
 
             bindings = <
-&kp TAB    &kp Q   &kp W   &kp E         &kp R        &kp T           &kp Y            &kp U          &kp I            &kp O       &kp P          &kp SINGLE_QUOTE
-&kp LCTRL  &kp A   &kp S   &kp D         &kp F        &kp G           &kp H            &kp J          &kp K            &kp L       &kp SEMI       &kp MINUS
-&kp LSHFT  &kp Z   &kp X   &kp C         &kp V        &kp B           &kp N            &kp M          &kp COMMA        &kp PERIOD  &kp SLASH      &kp EQUAL
-&trans     &trans  &trans  &mo 1         &kp SPACE    &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp BACKSPACE  &kp RET          &kp ESCAPE  &kp BACKSLASH  &kp TILDE
-                   &mo 2   &kp LEFT_WIN  &allow_home  &kp LEFT_ALT    &allow_pageup    &allow_home    &allow_pagedown  &allow_end
+&kp TAB    &kp Q   &kp W   &kp E         &kp R        &kp T             &kp Y              &kp U          &kp I            &kp O             &kp P              &kp SINGLE_QUOTE
+&kp LCTRL  &kp A   &kp S   &kp D         &kp F        &kp G             &kp H              &kp J          &kp K            &kp L             &lt 2 SEMI         &kp MINUS
+&kp LSHFT  &kp Z   &kp X   &kp C         &kp V        &kp B             &kp N              &kp M          &kp COMMA        &kp PERIOD        &kp SLASH          &kp EQUAL
+&trans     &trans  &trans  &mo 1         &kp SPACE    &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSPACE  &kp RET          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp K_COFFEE
+                   &mo 2   &kp LEFT_WIN  &allow_home  &kp LEFT_ALT      &allow_pageup      &allow_home    &allow_pagedown  &allow_end
             >;
         };
 
@@ -208,8 +230,8 @@
             display-name = "tertiary_layer";
             bindings = <
 &trans  &kp EXCL  &kp AT   &kp HASH  &kp DOLLAR  &kp PERCENT  &kp CARET  &kp AMPERSAND  &kp ASTRK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
-&trans  &kp F6    &kp F7   &kp F8    &kp F9      &kp F10      &trans     &trans         &trans     &trans                &trans                 &trans
-&trans  &kp F11   &kp F12  &kp F13   &kp F14     &kp F15      &trans     &trans         &trans     &trans                &trans                 &trans
+&trans  &kp F6    &kp F7   &kp F8    &kp F9      &kp F10      &trans     &trans         &trans     &trans                &trans                 &kp GRAVE
+&trans  &kp F11   &kp F12  &kp F13   &kp F14     &kp F15      &trans     &trans         &trans     &trans                &kp BACKSLASH          &trans
 &trans  &trans    &trans   &trans    &trans      &trans       &trans     &trans         &trans     &trans                &trans                 &trans
                   &trans   &trans    &trans      &trans       &trans     &trans         &trans     &trans
             >;
@@ -220,11 +242,11 @@
             sensor-bindings = <&scroll_down_up>, <&volume_up_down>;
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans       &trans      &out OUT_TOG  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4
-&trans  &trans  &trans  &trans  &bootloader  &sys_reset  &sys_reset    &bootloader   &studio_unlock  &bt BT_CLR    &bt BT_CLR_ALL  &trans
-&trans  &trans  &trans  &trans  &trans       &trans      &trans        &trans        &trans          &trans        &trans          &trans
-&trans  &trans  &trans  &trans  &trans       &trans      &trans        &trans        &trans          &trans        &trans          &trans
-                &trans  &trans  &trans       &trans      &trans        &trans        &trans          &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &out OUT_TOG  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4
+&trans  &trans        &trans        &trans        &trans        &trans        &sys_reset    &bootloader   &studio_unlock  &bt BT_CLR    &bt BT_CLR_ALL  &trans
+&trans  &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans          &trans
+&trans  &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans          &trans
+                      &trans        &trans        &trans        &trans        &trans        &trans        &trans          &trans
             >;
         };
 
@@ -235,7 +257,7 @@
 &trans  &trans  &mkp MCLK  &mkp RCLK  &mkp LCLK  &mkp MB5  &mkp MB5  &mkp LCLK  &mkp RCLK  &mkp MCLK  &mo 5   &mo SCROLL_R_LAYER
 &trans  &trans  &trans     &mkp MB5   &mkp MB4   &mkp MB4  &mkp MB4  &mkp MB4   &mkp MB5   &trans     &trans  &trans
 &trans  &trans  &trans     &trans     &mo 5      &trans    &trans    &trans     &trans     &trans     &trans  &trans
-                &trans     &trans     &trans     &trans    &trans    &trans     &trans     &trans
+                &mkp MB5   &trans     &mkp MB4   &trans    &trans    &trans     &trans     &trans
             >;
         };
 
