@@ -34,7 +34,9 @@
     };
 
     scroller {
-        layers = <SCROLL_R_LAYER>;
+        layers =
+            <SCROLL_R_LAYER>,
+            <SYMBOL_LAYER>;
         input-processors =
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
@@ -57,7 +59,9 @@
     };
 
     scroller {
-        layers = <SCROLL_L_LAYER>;
+        layers =
+            <SCROLL_L_LAYER>,
+            <SYMBOL_LAYER>;
         input-processors =
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
