@@ -2,7 +2,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
 #define DEFAULT_LAYER   0
@@ -205,23 +204,21 @@
             sensor-bindings = <&volume_up_down>, <&scroll_left_right>;
 
             bindings = <
-&kp TAB    &kp Q   &kp W   &kp E         &kp R        &kp T             &kp Y              &kp U          &kp I            &kp O             &kp P              &kp SINGLE_QUOTE
-&kp LCTRL  &kp A   &kp S   &kp D         &kp F        &kp G             &kp H              &kp J          &kp K            &kp L             &lt 2 SEMI         &kp MINUS
-&kp LSHFT  &kp Z   &kp X   &kp C         &kp V        &kp B             &kp N              &kp M          &kp COMMA        &kp PERIOD        &kp SLASH          &kp EQUAL
-&trans     &trans  &trans  &mo 1         &kp SPACE    &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSPACE  &kp RET          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp K_COFFEE
-                   &mo 2   &kp LEFT_WIN  &allow_home  &kp LEFT_ALT      &allow_pageup      &allow_home    &allow_pagedown  &allow_end
+&kp TAB    &kp Q   &kp W  &kp E         &kp R        &kp T         &kp Y              &kp U          &kp I            &kp O             &kp P              &kp SINGLE_QUOTE
+&kp LCTRL  &kp A   &kp S  &kp D         &kp F        &kp G         &kp H              &kp J          &kp K            &kp L             &lt 2 SEMI         &kp MINUS
+&kp LSHFT  &kp Z   &kp X  &kp C         &kp V        &kp B         &kp N              &kp M          &kp COMMA        &kp PERIOD        &kp SLASH          &kp EQUAL
+&trans     &trans  &mo 3  &mo 1         &kp SPACE    &mo 5         &kp RIGHT_BRACKET  &kp BACKSPACE  &kp RET          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans
+                   &mo 2  &kp LEFT_WIN  &allow_home  &kp LEFT_ALT  &allow_pageup      &allow_home    &allow_pagedown  &allow_end
             >;
         };
 
         SECONDARY_LAYER {
             display-name = "secondary_layer";
-            sensor-bindings = <&scroll_left_right>, <&scroll_left_right>;
-
             bindings = <
-&kp ESC  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6    &kp N7          &kp N8        &kp N9           &kp N0           &kp KP_NUMBER_9
-&trans   &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp KP_NUMBER_5  &kp KP_NUMBER_6
-&trans   &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp PAGE_DOWN   &kp KP_MINUS    &kp KP_PLUS   &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3
-&trans   &trans        &trans        &trans        &trans        &trans        &trans          &kp DELETE      &trans        &kp KP_NUMBER_0  &dot_comma       &kp KP_ENTER
+&kp ESC  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6    &kp N7          &kp N8        &kp N9           &kp N0  &trans
+&trans   &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans  &trans
+&trans   &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &trans          &trans          &trans        &trans           &trans  &trans
+&trans   &trans        &trans        &trans        &trans        &trans        &trans          &kp DELETE      &trans        &trans           &trans  &trans
                        &trans        &trans        &trans        &trans        &trans          &trans          &trans        &trans
             >;
         };
@@ -229,24 +226,22 @@
         TERTIARY_LAYER {
             display-name = "tertiary_layer";
             bindings = <
-&trans  &kp EXCL  &kp AT   &kp HASH  &kp DOLLAR  &kp PERCENT  &kp CARET  &kp AMPERSAND  &kp ASTRK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
-&trans  &kp F6    &kp F7   &kp F8    &kp F9      &kp F10      &trans     &trans         &trans     &trans                &trans                 &kp GRAVE
-&trans  &kp F11   &kp F12  &kp F13   &kp F14     &kp F15      &trans     &trans         &trans     &trans                &kp BACKSLASH          &trans
-&trans  &trans    &trans   &trans    &trans      &trans       &trans     &trans         &trans     &trans                &trans                 &trans
-                  &trans   &trans    &trans      &trans       &trans     &trans         &trans     &trans
+&trans  &kp EXCL  &kp AT   &kp HASH  &kp DOLLAR  &kp PERCENT  &kp CARET  &kp AMPERSAND     &kp ASTRK          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
+&trans  &kp F6    &kp F7   &kp F8    &kp F9      &kp F10      &trans     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp GRAVE
+&trans  &kp F11   &kp F12  &kp F13   &kp F14     &kp F15      &trans     &trans            &trans             &trans                &kp BACKSLASH          &trans
+&trans  &trans    &trans   &trans    &trans      &trans       &trans     &trans            &trans             &trans                &trans                 &trans
+                  &trans   &trans    &trans      &trans       &trans     &trans            &trans             &trans
             >;
         };
 
         SYSTEM_LAYER {
             display-name = "system_layer";
-            sensor-bindings = <&scroll_down_up>, <&volume_up_down>;
-
             bindings = <
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &out OUT_TOG  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4
-&trans  &trans        &trans        &trans        &trans        &trans        &sys_reset    &bootloader   &studio_unlock  &bt BT_CLR    &bt BT_CLR_ALL  &trans
-&trans  &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans          &trans
-&trans  &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans          &trans
-                      &trans        &trans        &trans        &trans        &trans        &trans        &trans          &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+                      &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans
             >;
         };
 
